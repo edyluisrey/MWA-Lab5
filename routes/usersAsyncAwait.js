@@ -4,7 +4,7 @@ const router = express.Router();
 
 var usersPromise = function(){
     return new Promise((resolve, reject) => {
-	    return fetch('http://jsonplaceholder.typicode.com/users/').then(response => {
+		return fetch('http://jsonplaceholder.typicode.com/users/').then(response => {
 		    if (response.ok) {
 		       resolve(response.json());
 		    } else {
