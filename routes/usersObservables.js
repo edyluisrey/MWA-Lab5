@@ -5,15 +5,15 @@ const Rx = require('@reactivex/rxjs');
 var router = express.Router();
 
 var usersPromise = new Promise((resolve, reject) => {
-	    return fetch('http://jsonplaceholder.typicode.com/users/').then(response => {
-		    if (response.ok) {
-		       resolve(response.json());
-		    } else {
-		       reject(new Error('error'));
-		    }
-		    }, error => {
-		       reject(new Error(error.message))
-		});  
+	return fetch('http://jsonplaceholder.typicode.com/users/').then(response => {
+	    if (response.ok) {
+	       resolve(response.json());
+	    } else {
+	       reject(new Error('error'));
+	    }
+	    }, error => {
+	       reject(new Error(error.message))
+	});  
  });   
 
 /* GET users listing. */
