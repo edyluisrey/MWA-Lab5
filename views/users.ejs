@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <style>
+        table{
+            border-collapse:collapse;
+            width:50%;
+        }
+        table,th,td{
+            border:1px solid black;
+        }
+        th{
+            height:40px;
+            background-color: #D8D8D8;
+        }
+        td{
+            height:30px;
+        }
+    </style>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Zip code</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Website</th>
+        </tr>          
+        <% users.forEach((user) => { %>
+   			<tr>
+	            <td><%= user.id %></td>
+	            <td><%= user.name %></td>
+	            <td><%= user.username %></td>
+	            <td><%= user.email %></td>
+	            <td><%= user.address.city %></td>
+	            <td><%= user.address.zipcode %></td>
+	            <td><%= user.address.geo.lat %></td>
+	            <td><%= user.address.geo.lng %></td>
+	            <td><%= user.website %></td>
+            </tr>
+        <% }) %>
+
+        </table>
+    
+  </body>
+</html>
