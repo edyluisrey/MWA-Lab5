@@ -34,16 +34,16 @@
             <th>Website</th>
         </tr>          
         <% users.forEach((user) => { %>
-   			<tr>
-	            <td><%= user.id %></td>
-	            <td><%= user.name %></td>
-	            <td><%= user.username %></td>
-	            <td><%= user.email %></td>
-	            <td><%= user.address.city %></td>
-	            <td><%= user.address.zipcode %></td>
-	            <td><%= user.address.geo.lat %></td>
-	            <td><%= user.address.geo.lng %></td>
-	            <td><%= user.website %></td>
+            <tr>
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.username %></td>
+            <td><%= user.email %></td>
+            <td><%= user.address.city %></td>
+            <td><%= user.address.zipcode %></td>
+            <td><%= user.address.geo.lat %></td>
+            <td><%= user.address.geo.lng %></td>
+            <td><%= user.website %></td>
             </tr>
         <% }) %>
 
