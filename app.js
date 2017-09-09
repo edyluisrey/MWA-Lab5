@@ -3,6 +3,8 @@ var path = require('path');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var usersObservables = require('./routes/usersObservables');
+var usersAsyncAwait = require('./routes/usersAsyncAwait');
 
 var app = express();
 
@@ -22,6 +24,8 @@ app.set('view cache',true);
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/usersObservables', usersObservables);
+app.use('/usersAsyncAwait', usersAsyncAwait);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

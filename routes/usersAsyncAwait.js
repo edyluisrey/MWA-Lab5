@@ -16,12 +16,18 @@ var usersPromise = function(){
     });
 }    
 
+async function askMe(res){
+	try{
+	   console.log("With Async / Await");	
+       let data= await usersPromise();
+       res.render('users', { title: 'Users', users: data});
+	}catch(error){
+		console.log(error.message);
+	}
+}
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    usersPromise()
-    .then(data => res.render('users', { title: 'Users', users: data}))
-    .catch(err => console.error(err));
-    
+   askMe(res);    
 });
 
 module.exports = router;

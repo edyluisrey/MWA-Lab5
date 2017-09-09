@@ -1,9 +1,10 @@
 const express = require('express');
 const fetch = require('node-fetch');
-const router = express.Router();
+const Rx = require('@reactivex/rxjs');
 
-var usersPromise = function(){
-    return new Promise((resolve, reject) => {
+var router = express.Router();
+
+var usersPromise = new Promise((resolve, reject) => {
 	    return fetch('http://jsonplaceholder.typicode.com/users/').then(response => {
 		    if (response.ok) {
 		       resolve(response.json());
@@ -13,15 +14,16 @@ var usersPromise = function(){
 		    }, error => {
 		       reject(new Error(error.message))
 		});  
-    });
-}    
+ });   
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    usersPromise()
-    .then(data => res.render('users', { title: 'Users', users: data}))
-    .catch(err => console.error(err));
-    
+	console.log("With Observable");
+    Rx.Observable.fromPromise(usersPromise).subscribe(
+       (data) => res.render('users', { title: 'Users', users: data}),
+       (e) => console.log(e.message),
+       null
+    );     
 });
 
 module.exports = router;
